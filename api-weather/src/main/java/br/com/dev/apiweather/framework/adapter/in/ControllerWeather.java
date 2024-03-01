@@ -11,7 +11,7 @@ import br.com.dev.apiweather.application.port.in.WeatherUseCase;
 import br.com.dev.apiweather.domain.dto.WeatherDto;
 
 @RestController
-@RequestMapping("/Weather")
+@RequestMapping("/weather")
 public class ControllerWeather {
 	
 	@Autowired

@@ -1,5 +1,17 @@
 package br.com.dev.apiweather.domain.dto;
 
-public record WeatherDto(String city, String country, String tempMax, String tempMin) {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class WeatherDto {
+	
+	private String city;
+	private String country;
+	private String tempMax;
+	private String tempMin;
 
 }

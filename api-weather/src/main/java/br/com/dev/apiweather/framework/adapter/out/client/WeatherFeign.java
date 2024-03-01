@@ -1,4 +1,4 @@
-package br.com.dev.apiweather.framework.adapter.out;
+package br.com.dev.apiweather.framework.adapter.out.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
