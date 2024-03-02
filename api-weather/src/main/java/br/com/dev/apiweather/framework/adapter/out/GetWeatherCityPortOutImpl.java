@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import br.com.dev.apiweather.application.port.out.GetWeatherCityPortOut;
-import br.com.dev.apiweather.domain.entities.WeatherData;
+import br.com.dev.apiweather.domain.dto.feing.openweathermap.WeatherDataDTO;
 import br.com.dev.apiweather.framework.adapter.out.client.WeatherFeign;
 
 @Service
@@ -22,7 +22,7 @@ public class GetWeatherCityPortOutImpl implements GetWeatherCityPortOut {
 	
 
 	@Override
-	public WeatherData getWeatherCity(String city) {
+	public WeatherDataDTO getWeatherCity(String city) {
 		return weatherFeign.getWeatherData(city, units, appid);
 	}
 

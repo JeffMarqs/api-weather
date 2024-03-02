@@ -12,13 +12,21 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import br.com.dev.apiweather.application.exception.CityNotFoundException;
 import br.com.dev.apiweather.application.exception.ExceptionResponse;
+import br.com.dev.apiweather.application.exception.ZipCodeNotFoundException;
 
 @ControllerAdvice
 @RestController
 public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 	
 	@ExceptionHandler(CityNotFoundException.class)
-	public final ResponseEntity<ExceptionResponse> handleNotFoundExceptions(Exception ex, WebRequest request) {
+	public final ResponseEntity<ExceptionResponse> handleCityNotFoundExceptions(Exception ex, WebRequest request) {
+		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
+		
+		return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(ZipCodeNotFoundException.class)
+	public final ResponseEntity<ExceptionResponse> handleZipCodeNotFoundExceptions(Exception ex, WebRequest request) {
 		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), request.getDescription(false));
 		
 		return new ResponseEntity<>(exceptionResponse, HttpStatus.NOT_FOUND);

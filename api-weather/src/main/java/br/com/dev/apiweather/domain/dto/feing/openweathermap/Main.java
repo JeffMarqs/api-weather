@@ -1,4 +1,4 @@
-package br.com.dev.apiweather.domain.entities;
+package br.com.dev.apiweather.domain.dto.feing.openweathermap;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -13,11 +13,8 @@ import lombok.NoArgsConstructor;
 @JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class Main {
 	
-	private Long temp;
-	private Long feelsLike;
-	private Long tempMin;
-	private Long tempMax;
-	private Integer pressure;
-	private Integer humidity;
+	private Double temp;
+	private Double tempMin;
+	private Double tempMax;
 
 }

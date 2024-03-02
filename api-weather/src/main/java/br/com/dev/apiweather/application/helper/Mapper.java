@@ -2,24 +2,43 @@ package br.com.dev.apiweather.application.helper;
 
 import static java.util.Objects.nonNull;
 
-import br.com.dev.apiweather.domain.dto.WeatherDto;
-import br.com.dev.apiweather.domain.entities.WeatherData;
+import com.gtbr.domain.Cep;
+
+import br.com.dev.apiweather.domain.dto.feing.openweathermap.WeatherDataDTO;
+import br.com.dev.apiweather.domain.dto.internal.Location;
+import br.com.dev.apiweather.domain.dto.internal.Weather;
+import br.com.dev.apiweather.domain.dto.internal.WeatherForecastDTO;
 
 public class Mapper {
 	
-	public static WeatherDto mapperWeatherDatatoWeatherDto(WeatherData weatherData, WeatherDto dto) {
+	public static WeatherForecastDTO mapperWeatherDatatoWeatherDto(WeatherDataDTO weatherData, WeatherForecastDTO dto, Cep zipCode) {
 		
-		dto.setCity(weatherData.getName());
+		var location = new Location();
+		var weather = new Weather();
+		
+		location.setCity(weatherData.getName());
 		
 		if(nonNull(weatherData.getSys()))
-			dto.setCountry(weatherData.getSys().getCountry());
+			location.setCountry(weatherData.getSys().getCountry());
+		
+		if(nonNull(zipCode)) {
+			location.setStreet(zipCode.getLogradouro());
+			location.setDistrict(zipCode.getBairro());
+			location.setState(zipCode.getUf());
+			}
 		
 		if(nonNull(weatherData.getMain())) {
 			if(nonNull(weatherData.getMain().getTempMax()))
-				dto.setTempMax(weatherData.getMain().getTempMax().toString());
+				weather.setTempMax(weatherData.getMain().getTempMax().toString());
 			if(nonNull(weatherData.getMain().getTempMin()))
-				dto.setTempMin(weatherData.getMain().getTempMin().toString());
+				weather.setTempMin(weatherData.getMain().getTempMin().toString());
+			if(nonNull(weatherData.getMain().getTemp()))
+				weather.setTemp(weatherData.getMain().getTemp().toString());
 		}
+		
+		
+		dto.setLocation(location);
+		dto.setWeather(weather);
 		
 		return dto;
 		

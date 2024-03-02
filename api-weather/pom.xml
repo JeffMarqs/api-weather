@@ -26,6 +26,11 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
+		<dependency>
+        	<groupId>com.gtbr</groupId>
+        	<artifactId>via-cep</artifactId>
+        	<version>1.0.0</version>
+    	</dependency>
 
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -54,6 +59,13 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
+	<repositories>
+    	<repository>
+        	<id>repsy</id>
+        	<url>https://repo.repsy.io/mvn/thalles/via-cep</url>
+    	</repository>
+	</repositories>
 
 	<build>
 		<plugins>

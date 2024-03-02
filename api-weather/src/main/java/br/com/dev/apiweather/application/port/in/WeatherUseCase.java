@@ -1,9 +1,11 @@
 package br.com.dev.apiweather.application.port.in;
 
-import br.com.dev.apiweather.domain.dto.WeatherDto;
+import java.net.URISyntaxException;
+
+import br.com.dev.apiweather.domain.dto.internal.WeatherForecastDTO;
 
 public interface WeatherUseCase {
 
-	WeatherDto getWeatherCity(String city);
+	WeatherForecastDTO getWeather(String string) throws URISyntaxException;
 
 }

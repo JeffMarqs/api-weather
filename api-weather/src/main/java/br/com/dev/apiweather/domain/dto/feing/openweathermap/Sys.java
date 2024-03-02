@@ -1,4 +1,4 @@
-package br.com.dev.apiweather.domain.entities;
+package br.com.dev.apiweather.domain.dto.feing.openweathermap;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
