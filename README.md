@@ -46,7 +46,8 @@ curl --location 'localhost:8080/weather/30140100'
 ## Erros Comuns
 
 404 Not Found: The zip code of '{zip code}' was not found.
-404 Not Found: "The city of '{name city}' was not found"
+
+404 Not Found: .The city of '{name city}' was not found.
 
 ## Considerações Finais
 Para mais informações sobre a API do Meu Projeto, entre em contato em jeffer.son_dasilva@live.com.
